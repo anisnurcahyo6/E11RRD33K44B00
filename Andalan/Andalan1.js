@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         andalan1
 // @namespace    http://tampermonkey.net/
-// @version      3.113
+// @version      3.0
 // @description  Script Metode Terbaru, Cari Semua Keyword
 // @updateURL  	 https://raw.githubusercontent.com/natasyabimosakti/Jovi/refs/heads/main/Jovi%201/Jovi1.js
 // @downloadURL	 https://raw.githubusercontent.com/natasyabimosakti/Jovi/refs/heads/main/Jovi%201/Jovi1.js
