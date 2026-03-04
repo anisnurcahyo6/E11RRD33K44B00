@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         andalan3
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      3.1
 // @description  Script Metode Terbaru, Cari Semua Keyword
 // @updateURL  	 https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
 // @downloadURL	 https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
