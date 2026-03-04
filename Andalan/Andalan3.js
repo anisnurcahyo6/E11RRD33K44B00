@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         andalan3
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @description  Script Metode Terbaru, Cari Semua Keyword
 // @updateURL  	 https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
 // @downloadURL	 https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
@@ -23,13 +23,13 @@
 
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Andalan3';
+var Comment18 = 'And3';
 
 
 
-var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/And3.json`;
+var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
-var refresh = 40;
+var refresh = 30;
 var URLADMIN = "https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Admin.json"
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
