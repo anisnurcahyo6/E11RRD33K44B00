@@ -903,7 +903,7 @@ async function cekMasalah() {
     if (isi.includes("masalah")) {
         MsgError(SCRIPT_NAME)
         observers.disconnect()
-        await sendToTelegram(`😫 Ada "Masalah":\n\n${cleanText}`);
+        await sendToTelegram(`😡 Ada "Masalah":\n\n${cleanText}`);
         setTimeout(() => {
             location.href = "https://m.facebook.com/bookmarks/"
         }, 2000);
