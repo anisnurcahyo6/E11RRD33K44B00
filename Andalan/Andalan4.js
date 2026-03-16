@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         And4
+// @name         andalan44
 // @namespace    http://tampermonkey.net/
-// @version      4.0
+// @version      5.0
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan4.js
 // @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan4.js
@@ -17,9 +17,9 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
+
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'And4';
-
 
 
 
@@ -301,7 +301,7 @@ function simulateHumanPullToRefresh(distance = 700) {
     console.log("🚀 Menjalankan simulasi tarik layar...");
     window.scrollTo({
         top: 0,
-        behavior: 'auto'
+        behavior: 'smooth'
     });
     // Gunakan penamaan variabel yang sangat unik agar tidak bentrok
     const _startX = window.innerWidth / 2;
@@ -957,8 +957,8 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
-var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
-var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
+    var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
+    var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
     if (sudahkirim) return;
     sudahkirim = true
     const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
