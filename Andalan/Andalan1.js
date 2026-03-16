@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         andalan11
+// @name         Andalan1
 // @namespace    http://tampermonkey.net/
-// @version      5.0
-// @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan1.js
-// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan1.js
+// @version      5.1
+// @description  Script Metode Terbaru, Cari Semua Keyword
+// @updateURL	 https://raw.githubusercontent.com/natasyabimosakti/Jovi/refs/heads/main/Jovi%204/Jovi%204.js
+// @downloadURL	 https://raw.githubusercontent.com/natasyabimosakti/Jovi/refs/heads/main/Jovi%204/Jovi%204.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -13,9 +13,13 @@
 // @grant        GM.getValue
 // @grant        window.close
 // @grant        GM_xmlhttpRequest
-// @connect      api.telegram.org
 // @connect      raw.githubusercontent.com
+// @grant        GM_xmlhttpRequest
+// @connect      api.telegram.org
+// @connect      raw.githubusercontent.com 
 // ==/UserScript==
+
+
 
 
 var namagroup18 = 'Jawatengah';
@@ -23,11 +27,10 @@ var Comment18 = 'And1';
 
 
 
-
-var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
+var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
 var refresh = 20;
-var URLADMIN = "https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Admin.json"
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_Jovi_123.json"
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001","🅻🅾🅼🅱🅰"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
@@ -957,8 +960,8 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
-    var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
-    var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
+    var TELEGRAM_TOKEN = '8396728370:AAHblTLr220NEd9PwS7BzzS5VWGcxix9RK8'; // GANTI
+    var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
     if (sudahkirim) return;
     sudahkirim = true
     const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
