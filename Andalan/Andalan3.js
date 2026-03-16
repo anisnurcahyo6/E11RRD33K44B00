@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         andalan33
+// @name         Andalan3
 // @namespace    http://tampermonkey.net/
-// @version      5.0
-// @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
-// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
+// @version      5.1
+// @description  Script Metode Terbaru, Cari Semua Keyword
+// @updateURL	 https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
+// @downloadURL	 https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan3.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -13,14 +13,17 @@
 // @grant        GM.getValue
 // @grant        window.close
 // @grant        GM_xmlhttpRequest
-// @connect      api.telegram.org
 // @connect      raw.githubusercontent.com
+// @grant        GM_xmlhttpRequest
+// @connect      api.telegram.org
+// @connect      raw.githubusercontent.com 
 // ==/UserScript==
+
+
 
 
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'And3';
-
 
 
 
