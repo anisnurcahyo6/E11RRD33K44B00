@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         And2
+// @name         andalan22
 // @namespace    http://tampermonkey.net/
-// @version      4.0
+// @version      5.0
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan2.js
 // @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan2.js
@@ -17,9 +17,9 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
+
 var namagroup18 = 'Jawatengah';
 var Comment18 = 'And2';
-
 
 
 
@@ -301,7 +301,7 @@ function simulateHumanPullToRefresh(distance = 700) {
     console.log("🚀 Menjalankan simulasi tarik layar...");
     window.scrollTo({
         top: 0,
-        behavior: 'auto'
+        behavior: 'smooth'
     });
     // Gunakan penamaan variabel yang sangat unik agar tidak bentrok
     const _startX = window.innerWidth / 2;
