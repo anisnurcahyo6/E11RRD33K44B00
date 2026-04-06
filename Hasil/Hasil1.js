@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      5.0
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul1.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul1.js
+// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil1.js
+// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil1.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
