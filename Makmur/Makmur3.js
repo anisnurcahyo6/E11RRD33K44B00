@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Makmur 3
+// @name         makmur 3
 // @namespace    http://tampermonkey.net/
-// @version      5.0
+// @version      7.0
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur3.js
 // @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur3.js
@@ -12,9 +12,10 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
-// @grant        GM_xmlhttpRequest
 // @connect      api.telegram.org
+// @grant        GM_xmlhttpRequest
 // @connect      raw.githubusercontent.com
+// @connect      localhost
 // ==/UserScript==
 
 
@@ -23,12 +24,11 @@ var Comment18 = 'Mak3';
 
 
 
-
 var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
-var refresh = 20;
+var refresh = 400;
 var URLADMIN = "https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Admin.json"
-var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001","🅻🅾🅼🅱🅰"]
+var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
 
@@ -200,7 +200,7 @@ function normalizeFB(t) {
         .replace(/[\u200B-\u200F\u202A-\u202E]/g, '')
         .replace(/[\uE000-\uF8FF]/g, '')
         .replace(/\s+/g, ' ')
-        // ⬇️ fix boundary facebook
+    // ⬇️ fix boundary facebook
         .replace(/([a-z])(?=(baru|menit|detik|jam|hari)\b)/gi, '$1 ')
         .trim()
         .toLowerCase();
@@ -285,7 +285,7 @@ function klikTombolByText(teks) {
     if (sedangProses) return false; // jangan klik kalau dialog muncul
     if (sedangKlikUrutkan) return false;
     const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-        .find(el => el.textContent.trim() === teks);
+    .find(el => el.textContent.trim() === teks);
     if (tombol) {
         tombol.click();
         console.log(`✅ Klik tombol "${teks}"`);
@@ -307,7 +307,7 @@ function simulateHumanPullToRefresh(distance = 700) {
     const _startX = window.innerWidth / 2;
     const _startY = 150;
     const _steps = 25;
-    const _duration = 600;
+    const _duration = refresh;
     const _identifier = Date.now();
 
     // 1. Fungsi pembantu untuk membuat Touch Event
@@ -493,8 +493,8 @@ function Random(comment) {
     }
 
     const rotated = lastCount === 2
-        ? [angka[1], angka[0]]
-        : shuffleArray(angka);
+    ? [angka[1], angka[0]]
+    : shuffleArray(angka);
 
     const start = comment.slice(0, lastNums[0].index);
     const end = comment.slice(lastNums[lastCount - 1].index + 2);
@@ -714,7 +714,6 @@ async function Mutation_cekArticle() {
                                     const target = textComponents[textComponents.length - 1];
                                     if (target) {
                                         target.click();
-                                        console.time("⚡ Scan-to-Click");
                                     }
                                 }
                             }, 0);
@@ -742,7 +741,7 @@ async function Mutation_cekArticle() {
             console.log("📦 koleksi sementara:", artikelBaruSet.size);
 
             // belum memenuhi syarat, jangan stop observer
-            if (artikelBaruSet.size < 2) {
+            if (artikelBaruSet.size < 0) {
                 console.log("⏳ artikel kurang, menunggu...");
                 return; // biarkan observer lanjut
             }
@@ -845,34 +844,27 @@ async function komentari() {
                 // Langsung cari di dalam node yang baru muncul saja (scoping)
                 // Ini jauh lebih cepat daripada document.querySelector
                 const textarea = node.classList?.contains("multi-line-floating-textbox")
-                    ? node
-                    : node.querySelector(".multi-line-floating-textbox");
+                ? node
+                : node.querySelector(".multi-line-floating-textbox");
 
                 const sendBtn = node.querySelector(".textbox-submit-button");
 
                 if (textarea && sendBtn) {
                     commentDone = true;
                     myObservere.disconnect();
-                    console.timeEnd("⚡ Scan-to-Click");
-                    console.time("⚡ Koment");
-                    // 1. Sinkronisasi Fokus & Isi (Tanpa jeda)
                     textarea.value = commentToPost;
                     sendBtn.disabled = false;
                     sendBtn.dispatchEvent(mDown);
                     sendBtn.click();
                     clearInterval(intervalURUTKAN);
-                    console.timeEnd("⚡ Koment");
-
-                    // Timer berakhir tepat setelah perintah kirim keluar
-
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
                     return;
                 }
 
                 const textarea2 = node.classList?.contains(".internal-input")
-                    ? node
-                    : node.querySelector(".internal-input");
+                ? node
+                : node.querySelector(".internal-input");
 
                 const sendBtn2 = document.querySelector("[aria-label='Posting komentar']");
 
@@ -880,19 +872,12 @@ async function komentari() {
                 if (textarea2 && sendBtn2) {
                     commentDone = true;
                     myObservere.disconnect();
-                    console.timeEnd("⚡ Scan-to-Click");
-                    console.time("⚡ Koment");
-                    // 1. Sinkronisasi Fokus & Isi (Tanpa jeda)
                     textarea2.focus();
                     textarea2.value = commentToPost;
                     sendBtn2.disabled = false;
                     sendBtn2.dispatchEvent(mDown);
                     sendBtn2.click();
                     clearInterval(intervalURUTKAN);
-                    console.timeEnd("⚡ Koment");
-
-                    // Timer berakhir tepat setelah perintah kirim keluar
-
                     if (window.runBypassTurbo) window.runBypassTurbo();
                     handlePostSuccess();
                     return;
@@ -1191,6 +1176,8 @@ function stopObserver() {
         console.log("🛑 Observer berhasil dihentikan dari luar.");
     }
 }
+
+
 // ===== MAIN FLOW =====
 (async () => {
     try {
@@ -1233,6 +1220,7 @@ function stopObserver() {
     } catch (e) {
         console.error("❌ Tidak bisa memulai bot karena gagal fetch admin list:", e);
     }
+
 
 
 
