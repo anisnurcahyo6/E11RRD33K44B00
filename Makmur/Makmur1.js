@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      7.0
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Zulf/Zulf1.js
+// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
+// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -20,7 +20,7 @@
 
 
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'cuan1';
+var Comment18 = 'Mak1';
 
 
 
