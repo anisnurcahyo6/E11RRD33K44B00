@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         makmur 1
 // @namespace    http://tampermonkey.net/
-// @version      7.0
+// @version      7.1
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
-// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
+// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul1.js
+// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/JUL/Jul1.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -12,22 +12,22 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        window.close
-// @connect      api.telegram.org
 // @grant        GM_xmlhttpRequest
+// @connect      api.telegram.org
 // @connect      raw.githubusercontent.com
 // @connect      localhost
 // ==/UserScript==
 
-
 var namagroup18 = 'Jawatengah';
-var Comment18 = 'Mak1';
+var Comment18 = 'mak1';
 
 
 
-var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
+
+var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
 var SCRIPT_NAME = Comment18
-var refresh = 400;
-var URLADMIN = "https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Admin.json"
+var refresh = 300;
+var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
 var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
 var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
 let adminPrefixSet = null;
@@ -53,6 +53,8 @@ var commentDone = false;
 var groups = [];
 var observersudahjalam = false;
 var observers = null
+var activeErrors = false;
+
 // Fungsi ambil data grup
 async function fetchGroupsFromGitHub() {
     return new Promise((resolve, reject) => {
@@ -102,7 +104,7 @@ async function fetchGroupsFromGitHub() {
                         } else {
                             console.warn("⚠️ Tidak ada grup ditemukan dalam 15 detik.");
                         }
-                        resolve();
+                        resolve(res); // Mengirimkan hasil (res) ke pemanggil
                     });
 
                 } catch (e) {
@@ -200,7 +202,7 @@ function normalizeFB(t) {
         .replace(/[\u200B-\u200F\u202A-\u202E]/g, '')
         .replace(/[\uE000-\uF8FF]/g, '')
         .replace(/\s+/g, ' ')
-    // ⬇️ fix boundary facebook
+        // ⬇️ fix boundary facebook
         .replace(/([a-z])(?=(baru|menit|detik|jam|hari)\b)/gi, '$1 ')
         .trim()
         .toLowerCase();
@@ -216,7 +218,7 @@ function loadLocalAdmin() {
             adminList = JSON.parse(stored);
             console.log("✅ Admin list loaded from localStorage:", adminList.length, "names");
         } catch (e) {
-            console.error("❌ Failed to parse local admin list:", e);
+            errornotifikasi("❌ Failed to parse local admin");
         }
     }
 }
@@ -245,12 +247,14 @@ function fetchAdminListFromGitHub() {
 
                     resolve(adminList); // ✅ resolve setelah data siap
                 } catch (e) {
-                    console.error("❌ Failed to parse remote admin list:", e);
+                    errornotifikasi("❌ Failed to parse remote admin");
+
                     reject(e);
                 }
             },
             onerror: function (err) {
-                console.error("❌ Failed to load admin list from GitHub:", err);
+                errornotifikasi("❌ Failed to load admin list from GitHub");
+
                 reject(err);
             }
         });
@@ -285,7 +289,7 @@ function klikTombolByText(teks) {
     if (sedangProses) return false; // jangan klik kalau dialog muncul
     if (sedangKlikUrutkan) return false;
     const tombol = Array.from(document.querySelectorAll('[role="button"], [tabindex="0"]'))
-    .find(el => el.textContent.trim() === teks);
+        .find(el => el.textContent.trim() === teks);
     if (tombol) {
         tombol.click();
         console.log(`✅ Klik tombol "${teks}"`);
@@ -297,7 +301,7 @@ function klikTombolByText(teks) {
 }
 
 // ===== Tunggu tombol URUTKAN muncul =====
-function simulateHumanPullToRefresh(distance = 700) {
+function simulateHumanPullToRefresh(distance = 600) {
     console.log("🚀 Menjalankan simulasi tarik layar...");
     window.scrollTo({
         top: 0,
@@ -493,8 +497,8 @@ function Random(comment) {
     }
 
     const rotated = lastCount === 2
-    ? [angka[1], angka[0]]
-    : shuffleArray(angka);
+        ? [angka[1], angka[0]]
+        : shuffleArray(angka);
 
     const start = comment.slice(0, lastNums[0].index);
     const end = comment.slice(lastNums[lastCount - 1].index + 2);
@@ -564,7 +568,6 @@ function parsePost(artikels) {
     if (!isAdmins) return false;
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
-        console.log("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -585,7 +588,6 @@ function parsePost2(artikels) {
 
     if (!(isBaru || isMenit)) return false;
     if (CekBacklist(postingan.toLowerCase())) {
-        console.log("❌ ada Backlist")
         return false;
     }
     if (!CekKeyword(postingan.toLowerCase())) return false;
@@ -595,21 +597,58 @@ function parsePost2(artikels) {
 
 async function tungguGroupAsync() {
     const start = Date.now();
-    while (Date.now() - start < 15000) { // 15 detik timeout
+    while (Date.now() - start < 60000) { // 60 detik timeout
         const result = getCommentForGroup();
-        if (result) {
+        if (result && result.comment && result.groupName) {
             commentToPost = Random(result.comment);
-            grouptToPost = result.groupName;
-            console.log("✅ Nama grup : " + grouptToPost + " | Comment : " + commentToPost);
+            grouptToPost = result.groupName; // Saran: ubah ke groupToPost di seluruh skrip
+            console.log(`✅ Nama grup : ${grouptToPost} | Comment : ${commentToPost}`);
             groups = groupNames.map(groupId => ({ groupId, defaultValue: false }));
             await manageGroups();
             return { commentToPost, grouptToPost };
         }
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
-    console.warn("⚠️ Timeout tunggu grup.");
+    errornotifikasi("tungguGroupAsync Error")
     return null;
 }
+
+function errornotifikasi(codeerror) {
+    if (activeErrors == true) {
+        return;
+    }
+    activeErrors = true;
+    // 1. Buat & Inject CSS langsung ke halaman (Warna diubah ke merah error)
+    const style = document.createElement('style');
+    style.innerHTML = `
+        #console-toast {
+            visibility: visible;
+            min-width: 250px;
+            background-color: #e74c3c; /* Merah untuk Error */
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 999999; /* Pastikan di paling depan */
+            bottom: 40px;
+            right: 30px;
+            font-family: sans-serif;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            opacity: 1;
+            transition: opacity 0.5s ease-out, bottom 0.5s ease-out;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 2. Buat elemen Div untuk Toast
+    const toast = document.createElement('div');
+    toast.id = 'console-toast';
+    toast.innerText = codeerror;
+    document.body.appendChild(toast);
+
+}
+
 
 
 
@@ -651,7 +690,6 @@ function CekBacklist(postinganBL) {
     for (const DataBacklist of Backlist) {
         const kata = DataBacklist.toLowerCase()
         if (postinganBL.toLowerCase().includes(kata)) {
-            console.log(`❌ Diblok karena mengandung: "${kata}"`);
             return true;
         }
     }
@@ -844,8 +882,8 @@ async function komentari() {
                 // Langsung cari di dalam node yang baru muncul saja (scoping)
                 // Ini jauh lebih cepat daripada document.querySelector
                 const textarea = node.classList?.contains("multi-line-floating-textbox")
-                ? node
-                : node.querySelector(".multi-line-floating-textbox");
+                    ? node
+                    : node.querySelector(".multi-line-floating-textbox");
 
                 const sendBtn = node.querySelector(".textbox-submit-button");
 
@@ -863,8 +901,8 @@ async function komentari() {
                 }
 
                 const textarea2 = node.classList?.contains(".internal-input")
-                ? node
-                : node.querySelector(".internal-input");
+                    ? node
+                    : node.querySelector(".internal-input");
 
                 const sendBtn2 = document.querySelector("[aria-label='Posting komentar']");
 
@@ -942,8 +980,8 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
-    var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
-    var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
+    var TELEGRAM_TOKEN = '8396728370:AAHblTLr220NEd9PwS7BzzS5VWGcxix9RK8'; // GANTI
+    var TELEGRAM_CHAT_ID = '-1002717306025'; // GANTI
     if (sudahkirim) return;
     sudahkirim = true
     const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
@@ -1181,10 +1219,20 @@ function stopObserver() {
 // ===== MAIN FLOW =====
 (async () => {
     try {
-        await fetchGroupsFromGitHub();
+        const groupFound = await fetchGroupsFromGitHub();
+
+        // Validasi: Berhenti jika grup tidak ditemukan agar tidak error di langkah berikutnya
+        if (!groupFound || !grouptToPost) {
+            errornotifikasi("❌ Identitas grup tidak terdeteksi. Skrip dihentikan untuk mencegah error.");
+            return;
+        }
 
         const admins = await getAdminsUntilSuccess();
         manageGroups()
+        if (commentToPost == "") {
+            errornotifikasi("❌ Ready to comment masih kosong");
+
+        }
         console.log("✅ Admin list ready:", admins);
         console.log("💬 Ready to comment:", commentToPost, grouptToPost);
         URLINI = document.URL;
