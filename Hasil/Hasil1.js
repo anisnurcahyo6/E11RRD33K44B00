@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      7.1
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
-// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
+// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil1.js
+// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil1.js
 // @author       You
 // @match        http*://*/*
 // @run-at       document-end
@@ -24,7 +24,7 @@ var Comment18 = 'Has1';
 
 
 
-var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
+var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil1.js`;
 var SCRIPT_NAME = Comment18
 var refresh = 300;
 var URLADMIN = "https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Admin.json"
