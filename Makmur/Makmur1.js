@@ -802,8 +802,8 @@ async function cekLogout() {
 }
 
 async function sendToTelegram(message) {
-    var TELEGRAM_TOKEN = '8825413477:AAHCWqL0onj3yxN0TNNSeh_TjJug1u4jims';
-    var TELEGRAM_CHAT_ID = '-1002717306025';
+    var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
+    var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
     if (sudahkirim) return;
     sudahkirim = true
     const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
