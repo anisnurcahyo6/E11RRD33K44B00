@@ -3,8 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      7.2
 // @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
-// @downloadURL  https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Piti/Piti1.js
+// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
+// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Makmur/Makmur1.js
 // @author       You
 // @match        *://*.facebook.com/*
 // @run-at       document-end
