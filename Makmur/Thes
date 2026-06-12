@@ -797,13 +797,7 @@ var Comment18 = 'Mak4';
                 masterObserver.disconnect();
             }
 
-            const text = targetEl.textContent;
-            const before = text.split("Menunggu")[0].trim() || "Seseorang";
-
-            MsgError(SCRIPT_NAME);
-            console.log(`⚠️ Masalah terdeteksi: Menunggu persetujuan ${before}`);
-
-            await sendToTelegram(`💩 Menunggu Persetujuan ${before}`);
+            
         }
     }
     async function cekLogout() {
