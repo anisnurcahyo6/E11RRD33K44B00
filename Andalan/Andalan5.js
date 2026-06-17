@@ -945,8 +945,8 @@ function levenshtein(a, b) {
 
 // Kirim ke Telegram, dengan deteksi spam berbasis kemiripan
 async function sendToTelegram(message) {
-    var TELEGRAM_TOKEN = '8396728370:A7BzzS5VWGcxix9RK8'; // GANTI
-    var TELEGRAM_CHAT_ID = '-1002717'; // GANTI
+    var TELEGRAM_TOKEN = '83967:A7BzzS5VW'; // GANTI
+    var TELEGRAM_CHAT_ID = '-'; // GANTI
     if (sudahkirim) return;
     sudahkirim = true
     const fullMessage = `? [${SCRIPT_NAME}]\n${message}`;
