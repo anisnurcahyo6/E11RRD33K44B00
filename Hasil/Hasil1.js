@@ -1,25 +1,4 @@
-// ==UserScript==
-// @name         hasil 1
-// @namespace    http://tampermonkey.net/
-// @version      7.2
-// @description  try to take over the world!
-// @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil1.js
-// @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil1.js
-// @author       You
-// @match        http*://*/*
-// @run-at       document-end
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @grant        GM.setValue
-// @grant        GM.getValue
-// @grant        window.close
-// @grant        GM_xmlhttpRequest
-// @connect      api.telegram.org
-// @connect      raw.githubusercontent.com
-// @connect      localhost
-// ==/UserScript==
 
-var namagroup18 = 'Jawatengah';
-var Comment18 = 'Has1';
 
 
     // --- 1. ANTI-THROTTLE & KEEP-ALIVE (Solusi Tab Background) ---
@@ -44,10 +23,12 @@ var Comment18 = 'Has1';
             }
         }, 100); // Heartbeat stabil menjaga status 'visible' palsu
     })();
-    var URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
-    var keyword = ["ROOM", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "HONGKONG", "SINGAPUR", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
+    var URLGROUP = `https://raw.githubusercontent.com/natasyabimosakti/Novi91/main/Comment/${Comment18}.json`;
+    var keyword = ["ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝐌𝐁𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌","nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "prediksi", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
-    var URLADMIN = "https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Admin.json"
+    var URLADMIN = "https://raw.githubusercontent.com/natasyabimosakti/ADMIN/refs/heads/main/Admin_group_Baru.json"
+    var TELEGRAM_TOKEN = '';
+    var TELEGRAM_CHAT_ID = '';
     let adminList = [];
     var SCRIPT_NAME = Comment18
     let isAdminListReady = false; // Flag penanda kesiapan data
@@ -78,6 +59,7 @@ var Comment18 = 'Has1';
     var EXPIRATION_MS = 5 * 60 * 1000;
     var currentFeedState = "";
     var cekurlutama = ""
+    var tekoprofile = ""
     var ceksimulasi = false;
     const fastOpts = { bubbles: true, cancelable: true };
     const mDown = new MouseEvent("mousedown", fastOpts);
@@ -558,7 +540,6 @@ var Comment18 = 'Has1';
         if (obs4) return;
         obs4 = true;
         if (skiper) return;
-        const isUserPage = cekurlutama.includes("user");
         var TXT_SELA = ".multi-line-floating-textbox, .internal-input";
         var timble = false;
         if (!botObserver) {
@@ -585,6 +566,7 @@ var Comment18 = 'Has1';
                             for (let i = 0, len = descendants.length; i < len; i++) {
                                 var el = descendants[i]
                                 if (commentDone) return;
+                                const isUserPage = cekurlutama.includes("user");
                                 const isValid = isUserPage ? parsePost2(el) : parsePost(el);
                                 const textComponents = el.querySelectorAll('[data-type="text"]');
                                 if (isValid) {
@@ -837,12 +819,10 @@ var Comment18 = 'Has1';
 
     }
     async function sendToTelegram(message) {
-    var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I'; // GANTI
-    var TELEGRAM_CHAT_ID = '-1002785071277'; // GANTI
+
         if (sudahkirim) return;
         sudahkirim = true
-        // Tambahkan nama akun ke pesan Telegram
-        const fullMessage = `👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
+        const fullMessage = `👤 [${tekoprofile || 'Unknown'}]\n👤 [${NamaFb || 'Unknown'}]\n🤖 [${SCRIPT_NAME}]\n${message}`;
         const normalizedMessage = normalizeText(fullMessage);
 
         const lastSent = await GM.getValue("lastTelegramMessage", "");
@@ -861,16 +841,22 @@ var Comment18 = 'Has1';
             console.log("?? Duplikat dicegah (mirip & <5 menit):", similarity);
             return;
         }
+        // Membuat tombol inline dengan status awal "Kosong" (⬜)
+        const replyMarkup = JSON.stringify({
+            inline_keyboard: [[{ text: "⬜ Tandai Selesai", callback_data: "mark_checked" }]]
+        });
 
         GM_xmlhttpRequest({
             method: "GET",
-            url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}`,
+            url: `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(fullMessage)}&reply_markup=${encodeURIComponent(replyMarkup)}`,
             onload: function (res) {
-
-                console.log("? Telegram terkirim:", res.responseText);
-                GM.setValue("lastTelegramMessage", fullMessage);
-                GM.setValue("lastTelegramTime", now);
-                GM.setValue("lastTelegramSame", now);
+                const response = JSON.parse(res.responseText);
+                if (response.ok) {
+                    console.log("✅ Pesan terkirim ke Telegram.");
+                    GM.setValue("lastTelegramMessage", fullMessage);
+                    GM.setValue("lastTelegramTime", now);
+                    GM.setValue("lastTelegramSame", now);
+                }
             },
             onerror: function (err) {
                 console.error("? Gagal kirim ke Telegram:", err);
@@ -970,6 +956,11 @@ var Comment18 = 'Has1';
         // --- VALIDASI KETAT: Tunggu commentToPost benar-benar terisi sebelum lanjut ---
         if (!commentToPost) {
             console.log("%c⏳ Menunggu identitas grup terdeteksi untuk mengisi commentToPost...", "color: #ffa500;");
+            if (cekurlutama.includes("user")) {
+                const baseUrl = cekurlutama.split('/user/')[0];
+                document.location.href = baseUrl;
+            }
+
             while (!commentToPost) {
                 const res = getCommentForGroup();
                 if (res) {
@@ -982,7 +973,9 @@ var Comment18 = 'Has1';
                 await new Promise(r => setTimeout(r, 1000));
             }
         }
-
+        if (document.querySelector(".chrome-toast-profile")) {
+            tekoprofile = document.querySelector(".chrome-toast-profile").textContent || "";
+        }
         console.log("%c✅ Inisialisasi Selesai. Data & Comment Siap: " + commentToPost, "color: #00ff00; font-weight: bold;");
         console.log("url adalah " + cekurlutama)
         // 1. Tunggu sampai document.body tersedia dan tidak dalam status 'loading'
@@ -1031,7 +1024,7 @@ var Comment18 = 'Has1';
                 return;
             }
 
-            if (isUserPage && JumlahKontent > 0) {
+            if (isUserPage && JumlahKontent > 2) {
                 simulateHumanPullToRefresh();
             } else {
                 const ikonTombolTarget = ['\u{f1953}', '\u{f3159}', 'URUTKAN'];
@@ -1069,7 +1062,7 @@ var Comment18 = 'Has1';
                         const htmlKonten = postBoxContainer.innerHTML;
 
                         // Cek apakah di dalam kotak kontainer besar ini terdapat teks kotak postingan
-                        if (htmlKonten.includes("Tulis sesuatu...")) {
+                        if (htmlKonten.includes("Tulis")) {
                             targetElement = btn; // Kunci target profil asli Anda!
                             break;
                         }
@@ -1085,7 +1078,7 @@ var Comment18 = 'Has1';
 
                 // 3. Tunggu selama 3 detik agar halaman profil selesai loading
                 console.log("[Sistem] Menunggu halaman profil termuat (3 detik)...");
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 5000));
 
                 // 4. Ambil data nama profil dengan aman (Anti-Error)
                 const screenRoot = document.querySelector("#screen-root");
@@ -1163,6 +1156,54 @@ var Comment18 = 'Has1';
             clearInterval(intervalCek);
         }, 10000);
 
+        let attempts = 0;
+        const interval = setInterval(() => {
+            attempts++;
+            const button = Array.from(document.querySelectorAll('div[role="button"][aria-label]'))
+                .find(el => {
+                    const label = el.getAttribute('aria-label')?.toLowerCase() || "";
+                    const isJoin = label.includes('gabung grup') || label.includes('join');
+                    const isDisabled = el.getAttribute('aria-disabled') === 'true';
+                    return isJoin && !label.includes('batalkan') && !isDisabled;
+                });
 
+
+            const keywords = ["tersisa", "banding", "permanen"];
+
+            const container = document.querySelector('[data-scrollable]');
+            if (!container) return;
+
+            const elements = container.querySelectorAll('[aria-label]');
+            let ariaLabelSebelumnya = null;
+            let ditemukan = false;
+
+            for (let i = 0; i < elements.length; i++) {
+                const currentLabel = elements[i].getAttribute('aria-label').toLowerCase();
+                const isMatch = keywords.some(keyword => currentLabel.includes(keyword));
+                if (isMatch) {
+                    ditemukan = true;
+                    if (i > 0) {
+                        ariaLabelSebelumnya = elements[i - 1].getAttribute('aria-label');
+                    } else {
+                        ariaLabelSebelumnya = "Cocok di elemen pertama, tidak ada elemen sebelumnya.";
+                    }
+                    break;
+                }
+            }
+            if (ditemukan) {
+                clearInterval(interval);
+                sendToTelegram(`👉 Nama: ${ariaLabelSebelumnya} Apes. Ajukan Banding`)
+            }
+
+            if (button && typeof button.click === 'function') {
+                if (button.textContent.includes("gabung") && !button.textContent.includes("batalkan")) {
+                    console.log('✅ Tombol ditemukan, klik sekarang...');
+                    button.click();
+                }
+            } else if (attempts >= 10) {
+                console.log('❌ Tombol tidak ditemukan setelah 10 kali percobaan. Berhenti.');
+                clearInterval(interval);
+            }
+        }, 2000); // Coba setiap 1 detik
     })();
 };
