@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         hasil 4
 // @namespace    http://tampermonkey.net/
-// @version      7.2
+// @version      7.3
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil4.js
 // @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Hasil/Hasil4.js
