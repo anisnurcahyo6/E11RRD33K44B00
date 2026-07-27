@@ -47,14 +47,14 @@ var Comment18 = 'And1';
 
 
     // Menentukan URL berdasarkan variabel global pasar (dari @require)
-    var baseURL = `http://127.0.0.1:8080/${Comment18}.json`;
+    var baseURL = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
     var URLGROUP = baseURL;
 
     if (typeof pasar !== 'undefined') {
         if (pasar === "SG") {
-            URLGROUP = `http://127.0.0.1:8080/${Comment18}_SG.json`;
+            URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
         } else if (pasar === "SD") {
-            URLGROUP = `http://127.0.0.1:8080/${Comment18}_SD.json`;
+            URLGROUP = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
         }
     }
     var nama_FB_Global = "Unknown"
