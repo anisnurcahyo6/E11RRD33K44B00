@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         andalan 1
 // @namespace    http://tampermonkey.net/
-// @version      7.0
+// @version      9.0
 // @description  try to take over the world!
 // @updateURL    https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan1.js
 // @downloadURL  https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Andalan/Andalan1.js
