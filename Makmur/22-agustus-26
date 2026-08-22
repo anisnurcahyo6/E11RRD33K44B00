@@ -48,7 +48,7 @@ var Comment18 = 'Mak1';
 
 
     // Menentukan URL berdasarkan variabel global pasar (dari @require)
-    var baseURL = `http://127.0.0.1:8080/${Comment18}.json`;
+    var baseURL = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
     var URLGROUP = baseURL;
 
     if (typeof pasar !== 'undefined') {
