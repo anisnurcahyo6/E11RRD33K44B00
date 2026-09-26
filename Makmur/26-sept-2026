@@ -65,7 +65,7 @@
         return true; // Tab ini MENANG dan berhak komentar!
     }
     // Menentukan URL berdasarkan variabel global pasar (dari @require)
-    var baseURL = ``;
+    var baseURL = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
     var URLGROUP = baseURL;
 
     if (typeof pasar !== 'undefined') {
