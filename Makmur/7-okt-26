@@ -48,7 +48,7 @@ var Comment18 = 'Mak1';
 
     // --- SISTEM PENGUNCI MULTI-TAB SUPER CEPAT (< 0.1 ms) ---
     const MY_TAB_ID = Math.random().toString(36).substring(2, 10); // ID unik untuk tab ini
-    const kunciGrup = namagroup19 ? namagroup19 : grouptToPost;
+    const kunciGrup = namagroup18 ? namagroup18 : grouptToPost;
     const lockKey = "FB_WIN_LOCK_" + kunciGrup.replace(/\s+/g, '_');
     function isWinnerTab() {
         // Ambil waktu global yang valid antar tab (Date.now())
@@ -89,13 +89,6 @@ var Comment18 = 'Mak1';
     var baseURL = `https://raw.githubusercontent.com/anisnurcahyo6/E11RRD33K44B00/refs/heads/main/Comment/${Comment18}.json`;
     var URLGROUP = baseURL;
 
-    if (typeof pasar !== 'undefined') {
-        if (pasar === "SG") {
-            URLGROUP = `http://127.0.0.1:8080/${Comment19}_SG.json`;
-        } else if (pasar === "SD") {
-            URLGROUP = `http://127.0.0.1:8080/${Comment19}_SD.json`;
-        }
-    }
     var nama_FB_Global = "Unknown"
     var keyword = ["ROM", "P4S4RAN", "P4S4RAN SGP", "PASARAN SDY", "T-BAK", "ROOM", "R**M", "𝗥𝗢𝗢𝗠", "LOMBA", "𝗟𝗢𝗠𝗕𝗔", "𝐋𝐎𝗠𝗕𝐀", "LIMBA", "ROM", "R00M", "login", "𝐑𝐎𝐎𝐌", "nemo", "l0mb4", "lomb4", "l0mba", "𝗥𝟬𝟬𝗠", "𝗟𝟬𝗠𝗕𝗔", "𝘙𝘖𝘖𝘔", "hatori", "klikh4tori001", "🅻🅾🅼🅱🅰"]
     var Backlist = ["pemenang lomba", "rekap", "natidulu", "room lomba freebet", "result", "juara lomba", "r3k4p", "r3kap", "rek4p", "undang"]
@@ -103,10 +96,10 @@ var Comment18 = 'Mak1';
     var TELEGRAM_TOKEN = '8239130398:AAHZVA0z5h7c2Pi_mRWlzYFojILVoylDP8I';
     var TELEGRAM_CHAT_ID = '-1002785071277';
     let adminList = [];
-    var SCRIPT_NAME = Comment19
+    var SCRIPT_NAME = Comment18
     let isAdminListReady = false; // Flag penanda kesiapan data
-    var refresh = 300; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
-    var refreshNonUser = 300;
+    var refresh = 1200; // Percepat durasi animasi tarik layar agar selesai dalam 200ms
+    var refreshNonUser = 500;
     let commentDone = false; // Flag untuk menghentikan aksi jika bot sudah selesai bertugas
     let lastRefreshFeedState = "20"; // Menyimpan ID postingan terakhir untuk mendeteksi perubahan feed
     let lastObservedUrl = location.href;
@@ -241,7 +234,7 @@ var Comment18 = 'Mak1';
                             },
                             "group": grouptToPost,
                             "models": "Diposting",
-                            "pasar": pasar
+
                         });
                         console.log("diposting Sudah Berhasil ______________________");
                     }
@@ -351,9 +344,9 @@ var Comment18 = 'Mak1';
                                 }
                             });
 
-                            if (namagroup19 && Comment19) {
-                                groupNames.push(normalizeToBasicLatin(namagroup19).toLowerCase());
-                                CommentList.push(Comment19);
+                            if (namagroup18 && Comment18) {
+                                groupNames.push(normalizeToBasicLatin(namagroup18).toLowerCase());
+                                CommentList.push(Comment18);
                             }
 
                             console.log("✅ Group list berhasil diambil dari " + urlToFetch + ":", groupNames.length);
@@ -815,7 +808,7 @@ var Comment18 = 'Mak1';
                             },
                             "group": grouptToPost,
                             "models": "Komentari",
-                            "pasar": pasar
+
                         });
 
                         return true;
@@ -1076,9 +1069,6 @@ var Comment18 = 'Mak1';
     function kirimDataKeLokal(payloadObj) {
         try {
             // Pastikan pasar selalu ada agar server.js tidak mengabaikan pembuatan activity card
-            if (!payloadObj.pasar) {
-                payloadObj.pasar = typeof pasar !== 'undefined' && pasar ? pasar : "HK";
-            }
 
             GM_xmlhttpRequest({
                 method: "POST",
@@ -1426,7 +1416,7 @@ var Comment18 = 'Mak1';
                     },
                     "group": grouptToPost,
                     "models": "Standby",
-                    "pasar": pasar
+
                 });
                 clearInterval(kiriminterval);
             } else {
